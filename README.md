@@ -1,6 +1,6 @@
 # Multi-task-learner
 This repository the implementation of multi-task learning
-## Setup=
+## Setup
 
 * Clone the repository:
     * `git clone https://github.com/pranav1601/multi-task-learner.git`
