@@ -1,5 +1,5 @@
 # Multi-task-learner
-This repository the implementation of multi-task learning
+This repository shows the implementation of multi-task learning using sentence transformers.
 ## Setup
 
 * Clone the repository:
