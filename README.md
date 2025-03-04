@@ -1,5 +1,5 @@
-# multi-task-learner
-This repository shows how sentence transformers can be used for multi-task learning
+# Multi-task-learner
+This repository the implementation of multi-task learning
 
 
 ## Architecture Choices Explanation - sentence transformers
@@ -108,7 +108,7 @@ This repository shows how sentence transformers can be used for multi-task learn
 
 #### Transfer Learning Approach
 - Pre-trained Model Selection
-    I would choose RoBERTa-base as the pre-trained model for this multi-task setting for several reasons:
+    * I would choose RoBERTa-base as the pre-trained model for this multi-task setting for several reasons:
 
     * Improved Training Methodology: RoBERTa improves upon BERT with better training procedures (dynamic masking, larger batches) leading to more robust representations.
     * Representation Quality: It produces higher quality contextual representations than BERT, which benefits both sentence classification and token-level tasks like NER.
@@ -146,8 +146,24 @@ This repository shows how sentence transformers can be used for multi-task learn
     * Resource Considerations: This tiered approach also allows for early stopping at any phase based on validation performance, making it adaptable to different computational constraints.
 
 #### Practical Implementation
-- In practice, I would:
+* Monitor validation performance on both tasks separately and use a combined metric for overall model quality
+* Implement task sampling strategies based on dataset sizes and task difficulty
+* Use task-specific learning rates if one task is more difficult than the other
 
-    * Monitor validation performance on both tasks separately and use a combined metric for overall model quality
-    * Implement task sampling strategies based on dataset sizes and task difficulty
-    * Use task-specific learning rates if one task is more difficult than the other
+# Implementation of Training Loop
+### Progressive Unfreezing
+- Initial State: Begin with frozen backbone, trainable task heads
+- Gradual Adaptation: Unfreeze 3 transformer layers at a time from top down
+
+### Loss Calculation
+- Direct Weighting: Simple weighted sum of task losses
+
+### Optimization
+- Standard AdamW: recommended defaults for NLP fine-tuning
+- Learning Rate Schedule: Linear schedule with warmup
+- Gradient Clipping: Prevent gradient explosion in multi-task setting
+
+### Evaluation
+- Task-Specific Metrics: Track accuracy and F1 for each task
+- Simple Aggregation: Average metrics for model selection
+- Checkpoint Saving: Save best model based on combined score
