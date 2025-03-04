@@ -287,7 +287,7 @@ class MultiTaskTrainer:
 # Example usage
 def run_example():
     from transformers import BertTokenizer
-    from multi_task_model import MultiTaskSentenceTransformer
+    from multi_task_learner import MultiTaskSentenceTransformer
     
     # Create sample data
     texts = [

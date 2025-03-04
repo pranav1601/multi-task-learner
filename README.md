@@ -1,6 +1,14 @@
 # Multi-task-learner
 This repository the implementation of multi-task learning
+## Setup=
 
+* Clone the repository:
+    * `git clone https://github.com/pranav1601/multi-task-learner.git`
+    * `cd multi-task-learner`
+
+* Build and run the Docker container:
+    * `docker build -t multi-task-learner .`
+    * `docker run -it multi-task-learner`
 
 ## Architecture Choices Explanation - sentence transformers
 * Base Model: I chose BERT (bert-base-uncased) as the transformer backbone because it provides strong performance for general NLP tasks. It has a solid understanding of language semantics, which is essential for generating meaningful sentence embeddings.
