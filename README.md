@@ -20,7 +20,7 @@ This repository the implementation of multi-task learning
 * Layer Normalization: Applied to stabilize the embedding distributions, which helps with training stability and downstream task performance.
 
 * L2 Normalization: I normalize the final embeddings to unit length, which is standard in sentence embedding tasks.
-![alt text](<Pasted Graphic 3.png>)
+![alt text](<screenshots/Pasted Graphic 3.png>)
 
 ## Architecture Choices for Multi-Task Learning
 * Shared Backbone: The BERT transformer backbone is shared between all tasks, allowing knowledge transfer across tasks and efficient parameter usage.
@@ -41,7 +41,7 @@ This repository the implementation of multi-task learning
     * NER uses token-level representations
 
 * Separation: Each task has a dedicated head with its own parameters, allowing for task-specific optimization while sharing the majority of parameters in the backbone.
-![alt text](<Pasted Graphic 6.png>)
+![alt text](<screenshots/Pasted Graphic 6.png>)
 
 ## Training Considerations for Multi-Task Learning
 1. Freezing the Entire Network
@@ -178,4 +178,4 @@ This repository the implementation of multi-task learning
 - Simple Aggregation: Average metrics for model selection
 - Checkpoint Saving: Save best model based on combined score
 
-![alt text](image.png)
+![alt text](screenshots/image.png)
